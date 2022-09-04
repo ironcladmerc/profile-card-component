@@ -1,27 +1,86 @@
-# Next.js + Tailwind CSS Example
+# Frontend Mentor - Profile card component solution
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is a solution to the [Profile card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/profile-card-component-cfArpWshJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Deploy your own
+## Table of contents
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Overview
 
-## How to use
+### The challenge
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- Build out the project to the designs provided
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+### Screenshot
+
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Tailwind CSS
+- CSS
+- Flexbox
+- [Next.js](https://nextjs.org/) - React framework
+
+### What I learned
+
+I learned how to use multiple images in the background using the CSS background property. It seems like I need to repeat the background-color in the media query, otherwise the background color went white. I'm still not sure why. To use this in Next.js, all we have to do is put these styles in the styles/globals.css file after the three @import directives for Tailwind.
+
+```css
+.card-background {
+    background: url("/bg-pattern-bottom.svg") no-repeat 730px 280px, url("/bg-pattern-top.svg") no-repeat -190px -530px;
+    background-color: hsl(185, 75%, 39%);
+}
+
+@media only screen and (max-width:500px) {
+    .card-background {
+        background:  url("/bg-pattern-bottom.svg") no-repeat 190px 300px,url("/bg-pattern-top.svg") no-repeat -140vw -70vh;
+        background-color: hsl(185, 75%, 39%);
 ```
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+I also learned how to use background images in Tailwind. To use it, we need to put a backgroundImage object into the tailwind.config.js file and give a name to all the background images you want to use. Then they will be available as classes starting with bg-. Ultimately I did not actually use this because I couldn't figure out how to use 2 background images at the same time with Tailwind.
+
+```json
+    extend: {
+      backgroundImage: {
+        "pattern-bottom": "url('/bg-pattern-bottom.svg')",
+        "pattern-card": "url('/bg-pattern-card.svg')",
+        "pattern-top": "url('/bg-pattern-top.svg')",
+      },
 ```
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Continued development
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+I need to learn more about vanilla CSS, as well as more looking into tailwindcss to see if there's a way to use multiple background images in a tailwind class. I didn't find one, so I used regular CSS for it.
+
+### Useful resources
+
+- [W3Schools CSS Background Property](https://www.w3schools.com/cssref/css3_pr_background.asp) - This helped me understand how to use the CSS background property.
+
+- [Tailwind Background Image Documentation](https://tailwindcss.com/docs/background-image#customizing-your-theme) - This helped me understand how to use background images in Tailwind.
+
+## Author
+
+- Frontend Mentor - [@ironcladmerc](https://www.frontendmentor.io/profile/ironcladmerc)
+
+## Acknowledgments
+
+To get the background image working, I peeked at the solution that ChMohitKaPage submitted for this challenge. I was not supposed to see that, but it came up as the first result in a google search. So, thanks to [ChMohitKaPage](https://www.frontendmentor.io/profile/ChMohitKaPage).

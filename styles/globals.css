@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card-background {
+    background: url("/bg-pattern-bottom.svg") no-repeat 730px 280px, url("/bg-pattern-top.svg") no-repeat -190px -530px;
+    background-color: hsl(185, 75%, 39%);
+}
+
+@media only screen and (max-width:500px) {
+    .card-background {
+        background:  url("/bg-pattern-bottom.svg") no-repeat 190px 300px,url("/bg-pattern-top.svg") no-repeat -140vw -70vh;
+        background-color: hsl(185, 75%, 39%);
+      }
+}
